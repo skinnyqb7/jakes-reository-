@@ -1,0 +1,88 @@
+import java.util.Scanner;
+public class program2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int first = 0; // these are the variables where I store all my numbers in
+		int second = 0;
+		int third = 0;
+		Scanner keyboard = new Scanner(System.in) ;
+		System.out.println("what is your first number");
+			first = keyboard.nextInt();
+		System.out.println("what is your first number");
+		    second = keyboard.nextInt();
+		System.out.println("what is your first number");
+		    third = keyboard.nextInt();
+		System.out.println("1. add");
+		System.out.println("2. subtract");
+		System.out.println("3. multiply");
+		System.out.println("4. divide ");
+		int choice = keyboard.nextInt();
+		double ans;
+		switch (choice) {// this is where add, subtract, multiply, and divide is decided
+		case 1: // This is the addition formula 
+			ans = first + second;
+			System.out.println(first +"+"+ second +" = " + ans);
+			if(ans>third) {
+				System.out.println(ans+"is greater than"+ third);
+				
+			}
+			else if (ans>third) {
+				System.out.println(ans+"is less than"+ third);
+				
+			}
+			else {
+				System.out.println(ans+"is equal to"+ third);
+			}
+			break;
+		case 2: // This is the subtraction formula
+			ans = first - second;
+			System.out.println(first +"-"+ second +" = " + ans);
+			if(ans>third) {
+				System.out.println(ans+"is greater than"+ third);
+				
+			}
+			else if (ans>third) {
+				System.out.println(ans+"is less than"+ third);
+				
+			}
+			else {
+				System.out.println(ans+"is equal to"+ third);
+			}
+			break;
+		case 3: // This is the multiplication formula
+			ans = first * second;
+			System.out.println(first +"x"+ second +" = " + ans);
+			if(ans>third) {
+				System.out.println(ans+"is greater than"+ third);
+				
+			}
+			else if (ans>third) {
+				System.out.println(ans+"is less than"+ third);
+				
+			}
+			else {
+				System.out.println(ans+"is equal to"+ third);
+			}
+			break;
+		case 4: // This is the division formula 
+			ans = first / second;
+			System.out.println(first +"/"+ second +" = " + ans);
+			if(ans>third) {
+				System.out.println(ans+"is greater than"+ third);
+				
+			}
+			else if (ans>third) {
+				System.out.println(ans+"is less than"+ third);
+				
+			}
+			else {
+				System.out.println(ans+"is equal to"+ third);
+			}
+			break;
+		}
+		
+
+	}
+
+}
