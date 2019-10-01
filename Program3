@@ -1,0 +1,44 @@
+import java.util.Scanner;
+public class Program3 {
+// Project Name: Program3
+// Author: Jake McCormick	
+
+
+
+
+
+    public static void main(String[]args) {
+    // TODO Auto-generated method stub
+    int num;
+    String name;
+    int onSwitch=1;
+    Scanner keyboard = new Scanner(System.in);
+    System.out.println("What is your name? ");
+    name = keyboard.next();
+    System.out.println("Pick a number between 1 and 100.");
+    num = keyboard.nextInt();
+    while(onSwitch ==1) {
+    	if (num >0 &&num<101) {
+    	System.out.println("Thank you for your input "+name+"!");
+    	onSwitch = 0;
+    	}
+    	else {
+    		System.out.println("Type in a number between 1 and 100!");
+    		num = keyboard.nextInt();
+    		
+    	}
+    }//end of while loop
+    for(int i = num;i>0;i--) {
+    	if (num==1) {
+    		System.out.println("there's "+num+" red car on the road"+" \nthe lastone turns off the exit, theres now "+ (num-1)+" red cars on the road ");
+    	}
+    	else {
+    		System.out.println("there's "+num+" red cars on the road"+" \none turns off the exit, theres now "+ (num-1)+" red cars on the road ");
+    	}
+    	}
+    keyboard.close();
+    
+    }
+    
+    
+    }
