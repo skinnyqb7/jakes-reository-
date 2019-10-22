@@ -1,0 +1,179 @@
+// Project: Program 5
+// Author: Jake McCormick
+
+
+
+
+package program5;
+
+public class program5 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		// Start keyboard and declare variables
+
+				Scanner keyboard = new Scanner(System.in);
+
+				int menuChoice;
+
+				double balance = 0.00;
+
+				double stocks = 0.00;
+
+				double stockAmount = 0.00;
+
+				
+
+				// ask for input
+
+				do
+
+				{
+
+				displayMenu();
+
+				menuChoice = keyboard.nextInt();
+
+				
+
+				switch(menuChoice)
+
+				{
+
+				case 1:
+
+					System.out.println("How many would you like to buy?");
+
+					stockAmount = keyboard.nextDouble();
+
+					balance = buy(balance, stockAmount);
+
+					displayBalance(balance);
+
+					break;
+
+				case 2:
+
+					System.out.println("How many would you like to sell?");
+
+					stocks = keyboard.nextDouble();
+
+					balance = stocks(balance, stocks);
+
+					displayBalance(balance);
+
+					break;
+
+				case 3:
+
+					displayBalance(balance);
+
+					break;
+
+				case 4:
+
+					displayBalance(balance);
+
+					System.out.println("Thank you - have a great day! :)");
+
+					break;
+
+				default:
+
+					System.out.println("That is an invalid choice. Please re-enter an option.");
+
+				}
+
+				}while(menuChoice !=4);
+
+				
+
+				
+
+				
+
+			}
+
+
+
+			// Menu options
+
+			public static void displayMenu()
+
+			{
+
+				System.out.println("Main Menu");
+
+				System.out.println("=========");
+
+				System.out.println("1.) Buy stocks");
+
+				System.out.println("2.) Sell stocks");
+
+				System.out.println("3.) View amount of stocks");
+
+				System.out.println("4.) Exit");
+
+				System.out.println("What woulds you like to do? ");
+
+			}
+
+			
+
+			// Method to add to the total amount
+
+			public static double buy(double bal, double buy)
+
+			{
+
+				return (bal+buy);
+
+			}
+
+			
+
+			// Method to erase from the total amount
+
+			public static double stocks(double bal, double sto)
+
+			{
+
+				return (bal-sto);
+
+				
+
+			}
+
+			
+
+			// Method that displays the amount the user have
+
+			public static void displayBalance(double bal)
+
+			{
+
+				if (bal>0)
+
+				System.out.println("You own " + bal + " amount of stocks.");
+
+				
+
+				if (bal==0)
+
+				System.out.println("You no longer own any stocks.");
+
+				
+
+				if (bal<0)
+
+					System.out.println("You sold more stocks than you own. You need to buy more than " + (-bal) + " amount of stocks before you can start selling again.");
+
+				
+
+				
+
+				}		
+
+				
+
+			}
