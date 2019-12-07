@@ -1,0 +1,169 @@
+// Author: Jake McCormick
+// Project: Final Project
+
+// imports the data 
+import java.util.Scanner;
+
+import java.io.*;
+
+public class sales {
+
+
+
+	public static void main(String[] args) throws IOException {
+
+		// TODO Auto-generated method stub
+
+		File fw = new File("/Users/jakemccormick/Desktop/Salespepsi.txt");
+
+		Scanner inputFile = new Scanner(fw);
+
+		
+
+		try {
+
+		
+
+		FileWriter tempFile = new FileWriter ("/Users/jakemccormick/Desktop/SalesPepsi.txt", true);
+
+		PrintWriter outputFile = new PrintWriter(tempFile);
+//amount of pepsi in the store 
+		int pepsi=200;
+
+		String name;
+
+		double price=2;
+
+		int workers [][] = new int [2][1]; 
+
+		workers[0][0]=0;
+
+		workers[1][0]=0;
+
+		
+
+		double change;
+
+		int strikes=0;
+
+		Scanner keyboard = new Scanner(System.in);
+
+		System.out.println("What is your name?");
+
+		name = keyboard.next();
+
+		System.out.println("Hey "+ name + " welcome to Jake's Pepsi Shop\nYou are the worker! You have to settle the dispute when you are on shift.");
+
+		System.out.println("There are " +pepsi+ "pepsi!\n\n");
+
+		  while (pepsi>0) { // keeps program running until pepsi runs out 
+
+			  int moneyOwn = (int)(Math.random()*10+1);
+
+			  int pepsiBuy=(int)(moneyOwn/price);
+
+			  for (int i = 0; i< workers.length;i++) {
+
+				  if (i==1) {
+
+					  System.out.println("You are on shift!\nThe Pepsi cost $3" );
+
+					  System.out.println("Someone buys "+pepsiBuy+ " pepsi\nIt costs "+price*pepsiBuy+" dollars");
+
+					  System.out.println("They paid " +moneyOwn+" dollars! Give them their exact change");
+
+					  change = keyboard.nextDouble();
+
+					  pepsi -=pepsiBuy;
+
+					  System.out.println("\n");
+
+					  if (change==((double)moneyOwn-(price*pepsiBuy))){
+
+						  System.out.println("Good Job!"); // when the user inputs the correct amount of change the user is awarded a "good job" message 
+
+						  }
+
+					  else {
+
+						  strikes++;
+
+						  System.out.println("That's a Strike");
+
+					  }
+
+					  workers[i][0]+=pepsi;
+
+				  }
+
+				  else  {
+
+					  System.out.println("You are not on Shift"); // this shows when the other worker is on shift 
+
+					  System.out.println("Someone bought "+pepsiBuy+" pepsi"); 
+
+					  System.out.println("\n\n");
+
+					  pepsi-=pepsiBuy;
+
+					  workers[i][0]+=pepsi;
+
+				  }
+
+				  
+
+			  }
+
+			  System.out.println("There are "+pepsi+" pepsi left.\n\n");
+
+			  if (strikes==3) { 
+
+				  System.out.println("You are FIRED!"); // this only happens when you have 3 strikes 
+
+				  pepsi=-1;
+
+			  }
+
+		  }
+
+		  outputFile.println("You sold " +workers[1][0]+" pepsi.");
+
+		  outputFile.println("Your partner sold "+ workers[0][0]+ " pepsi.");
+
+		  if (workers[1][0]>workers[0][0]) {
+
+			  outputFile.println("You've earned Employee Of The Month");
+
+		  }
+
+		  else {
+
+			  outputFile.println("You Suck!");
+
+		  }
+
+		
+
+		  inputFile.close();
+
+		  outputFile.close();
+
+		  		}
+
+		  		catch (EOFException error) {
+// end of game 
+		  			System.out.println("Sorry we have reached the dnd of the file.");
+
+		  			System.out.println("Error Message: "+ error.getMessage());
+
+		  		}
+
+		  		catch ( FileNotFoundException error) {
+
+		  			System.out.println("Sorry we seem to have reached the end of the file");
+
+		  			System.out.println("ERROR Message: " + error.getMessage());
+
+		  		}
+
+	
